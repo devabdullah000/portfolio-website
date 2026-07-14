@@ -1,20 +1,20 @@
 export const educations = [
   {
     id: 1,
-    title: "Bachelor Degree",
-    duration: "2020 - Present",
-    institution: "National University of Bangladesh",
+    title: "Software Engineering (BSSE)",
+    duration: "2023 - Present",
+    institution: "Virtual University of Pakistan",
   },
   {
     id: 2,
-    title: "Higher Secondary Certificate",
-    duration: "2018 - 2020",
-    institution: "Noakhali Islamia Kamil Madrasah",
+    title: "Intermediate (ICS)",
+    duration: "2020 - 2022",
+    institution: "Apex Group of Colleges",
   },
   {
     id: 3,
-    title: "Secondary School Certificate",
-    duration: "2008 - 2018",
-    institution: "Baitus Saif Islamia Madrasah",
+    title: "Matriculation",
+    duration: "2008 - 2019",
+    institution: "ICON School System",
   }
 ]
