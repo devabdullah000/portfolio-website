@@ -4,9 +4,6 @@ import nodemailer from 'nodemailer';
 // Create and configure Nodemailer transporter
 const transporter = nodemailer.createTransport({
   service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false, 
   auth: {
     user: process.env.EMAIL_ADDRESS,
     pass: process.env.GMAIL_PASSKEY, 
@@ -69,7 +66,7 @@ export async function POST(request) {
     // Send email
     const emailSuccess = await sendEmail(payload, message);
 
-    if (emailSuccess) {
+    if (emailSuccess) { 
       return NextResponse.json({
         success: true,
         message: 'Email sent successfully!',
