@@ -15,7 +15,10 @@ import python from '../app/assets/svg/skills/python.svg';
 import react from '../app/assets/svg/skills/react.svg';
 import tailwind from '../app/assets/svg/skills/tailwind.svg';
 import typescript from '../app/assets/svg/skills/typescript.svg';
-import linux from '../app/assets/svg/skills/linux.svg'
+import linux from '../app/assets/svg/skills/linux.svg';
+import nodeJS from '../app/assets/svg/skills/nodeJS.svg';
+import jenkins from '../app/assets/svg/skills/jenkins.svg';
+import terraform from '../app/assets/svg/skills/terraform.svg';
 
 export const skillsImage = (skill) => {
   const skillID = skill.toLowerCase();
@@ -56,6 +59,12 @@ export const skillsImage = (skill) => {
       return nginx;
     case 'linux':
       return linux;
+    case 'node js':
+      return nodeJS;
+    case 'jenkins':
+      return jenkins;
+    case 'terraform':
+      return terraform;
     default:
       break;
   }
