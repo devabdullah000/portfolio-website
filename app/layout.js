@@ -2,73 +2,185 @@ import { GoogleTagManager } from "@next/third-parties/google";
 import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
 import Footer from "./components/footer";
-import ScrollToTop from "./components/helper/scroll-to-top";
 import Navbar from "./components/navbar";
+import ScrollToTop from "./components/helper/scroll-to-top";
+
 import "./css/card.scss";
 import "./css/globals.scss";
-const inter = Inter({ subsets: ["latin"] });
+
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const siteUrl = "https://iamabdullah.net";
 
 export const metadata = {
-  title: "Abdullah | Cloud Architect, Backend & DevOps Engineer Portfolio",
-  description: "Portfolio of Abdullah, a self-driven Software Engineer specializing in scalable AWS cloud infrastructure, high-performance Node.js/TypeScript backend APIs, and modern DevOps/CI-CD pipelines.",
-  keywords: [
-    "Cloud Architect",
-    "Backend Developer",
-    "DevOps Engineer",
-    "Next.js Developer",
-    "AWS",
-    "TypeScript",
-    "Express API",
-    "Docker",
-    "CI/CD Pipelines",
-    "Infrastructure as Code",
-    "Serverless Architecture",
-    "React Frontend"
+  metadataBase: new URL(siteUrl),
+
+  title: {
+    default: "Abdullah | Cloud Architect, Backend & DevOps Engineer",
+    template: "%s | Abdullah",
+  },
+
+  description:
+    "Portfolio of Abdullah, a Cloud Architect, Backend Engineer, and DevOps Engineer specializing in AWS, Node.js, TypeScript, Docker, Kubernetes, CI/CD, and scalable cloud infrastructure.",
+
+  applicationName: "Abdullah Portfolio",
+
+  authors: [
+    {
+      name: "Abdullah",
+      url: siteUrl,
+    },
   ],
-  authors: [{ name: "Abdullah" }],
+
   creator: "Abdullah",
-  metadataBase: new URL("https://iamabdullah.net"), // Replace with your actual domain
+
+  publisher: "Abdullah",
+
+  keywords: [
+    "Abdullah",
+    "Cloud Architect",
+    "Backend Engineer",
+    "Backend Developer",
+    "Software Engineer",
+    "DevOps Engineer",
+    "AWS",
+    "Amazon Web Services",
+    "Node.js",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "JavaScript",
+    "Express.js",
+    "Docker",
+    "Kubernetes",
+    "Terraform",
+    "CI/CD",
+    "GitHub Actions",
+    "Linux",
+    "REST API",
+    "Microservices",
+    "Cloud Infrastructure",
+    "Portfolio",
+  ],
+
+  category: "Technology",
+
   alternates: {
     canonical: "/",
   },
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+
   openGraph: {
-    title: "Abdullah | Cloud Architect & Backend Engineer Portfolio",
-    description: "Explore the portfolio of Abdullah, specializing in scalable AWS configurations, robust REST APIs, and automated DevOps architectures.",
-    url: "https://iamabdullah.net", // Replace with your actual domain
-    siteName: "Abdullah Portfolio",
-    locale: "en_US",
     type: "website",
+    locale: "en_US",
+    url: siteUrl,
+    siteName: "Abdullah Portfolio",
+
+    title: "Abdullah | Cloud Architect, Backend & DevOps Engineer",
+
+    description:
+      "Cloud Architect specializing in AWS, scalable backend systems, DevOps automation, CI/CD pipelines, Docker, Kubernetes, and modern web applications.",
+
     images: [
       {
-        url: "/og-image.png", // Make sure to drop a 1200x630px social preview image inside your public folder
+        url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Abdullah Portfolio Preview",
+        alt: "Abdullah | Cloud Architect & Backend Engineer",
       },
     ],
   },
+
   twitter: {
     card: "summary_large_image",
-    title: "Abdullah | Cloud Architect & Backend Engineer Portfolio",
-    description: "AWS, Backend API design, DevOps automation, and modern frontend development.",
+    title: "Abdullah | Cloud Architect, Backend & DevOps Engineer",
+    description:
+      "AWS • Node.js • Next.js • Docker • Kubernetes • DevOps • Backend Engineering",
     images: ["/og-image.png"],
   },
+
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+  },
+
+  referrer: "origin-when-cross-origin",
 };
 
 export default function RootLayout({ children }) {
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Abdullah",
+    url: siteUrl,
+    image: `${siteUrl}/profile.jpeg`,
+    jobTitle: "Cloud Architect, Backend & DevOps Engineer",
+    description:
+      "Cloud Architect, Backend Engineer and DevOps Engineer specializing in AWS, scalable backend systems, Node.js, TypeScript, Docker, Kubernetes and CI/CD.",
+
+    knowsAbout: [
+      "AWS",
+      "Cloud Architecture",
+      "Backend Development",
+      "Node.js",
+      "TypeScript",
+      "Next.js",
+      "React",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "CI/CD",
+      "DevOps",
+      "REST APIs",
+      "Microservices",
+    ],
+
+    sameAs: [
+      "https://github.com/devabdullah000",
+      "https://www.linkedin.com/in/mohammad-abdullah-45144b422/",
+    ],
+  };
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema),
+          }}
+        />
+
         <ToastContainer />
-        <main className="min-h-screen relative mx-auto px-6 sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem] text-white">
+
+        <main className="relative mx-auto min-h-screen px-6 text-white sm:px-12 lg:max-w-[70rem] xl:max-w-[76rem] 2xl:max-w-[92rem]">
           <Navbar />
           {children}
           <ScrollToTop />
         </main>
+
         <Footer />
       </body>
-      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM} />
     </html>
   );
 }
