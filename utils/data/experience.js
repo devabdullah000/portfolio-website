@@ -1,13 +1,13 @@
 export const experiences = [
   {
     id: 1,
-    title: 'Cloud Architect',
+    title: 'Cloud Solution Architect',
     company: "Freelancer (upwork/fiverr)",
     duration: "(Apr 2025 - Present)"
   },{
     id: 2,
     title: "MERN Stack Developer",
-    company: "Al Masood Technologies",
+    company: "Prismatic Technologies",
     duration: "(May 2024 - Mar 2025)"
   },
   {

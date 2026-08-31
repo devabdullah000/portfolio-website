@@ -97,7 +97,7 @@ export const metadata = {
     title: "Abdullah | Cloud Architect, Backend & DevOps Engineer",
 
     description:
-      "Cloud Architect specializing in AWS, scalable backend systems, DevOps automation, CI/CD pipelines, Docker, Kubernetes, and modern web applications.",
+      "Cloud Architect specializing in AWS, scalable backend systems, DevOps automation, CI/CD pipelines, Docker, and modern web applications.",
 
     images: [
       {
@@ -145,7 +145,6 @@ export default function RootLayout({ children }) {
       "Next.js",
       "React",
       "Docker",
-      "Kubernetes",
       "Terraform",
       "CI/CD",
       "DevOps",
@@ -154,7 +153,7 @@ export default function RootLayout({ children }) {
     ],
 
     sameAs: [
-      "https://github.com/devabdullah000",
+      "https://github.com/iamabdullah0811",
       "https://www.linkedin.com/in/mohammad-abdullah-45144b422/",
     ],
   };
