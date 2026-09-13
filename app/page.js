@@ -10,7 +10,11 @@ import Skills from "./components/homepage/skills";
 import Services from "./components/homepage/services";
 
 async function getData() {
-  const res = await fetch(`https://dev.to/api/articles?username=${personalData.blog_url}`)
+  const res = await fetch(`https://dev.to/api/articles?username=${personalData.blog_url}`,
+    {
+    cache: 'no-store',
+  }
+  )
 
   if (!res.ok) {
     throw new Error('Failed to fetch data')
